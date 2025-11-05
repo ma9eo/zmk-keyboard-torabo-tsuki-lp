@@ -37,11 +37,6 @@
             layers = <0>;
             timeout-ms = <100>;
         };
-
-        test {
-            bindings = <&none>;
-            key-positions = <46 47>;
-        };
     };
 
     behaviors {

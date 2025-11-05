@@ -10,13 +10,13 @@
 
         bt_clear {
             bindings = <&bt BT_CLR>;
-            key-positions = <28 29>;
-            layers = <2>;
+            key-positions = <23 24>;
+            layers = <3>;
         };
 
         left_click {
             bindings = <&mkp LCLK>;
-            key-positions = <28 29>;
+            key-positions = <16 17>;
             layers = <0>;
             slow-release;
             timeout-ms = <100>;
@@ -24,7 +24,7 @@
 
         right_click {
             bindings = <&mkp RCLK>;
-            key-positions = <29 30>;
+            key-positions = <17 18>;
             layers = <0>;
             slow-release;
             timeout-ms = <100>;
@@ -32,7 +32,7 @@
 
         scroll_layer {
             bindings = <&mo 2>;
-            key-positions = <40 41>;
+            key-positions = <28 29>;
             slow-release;
             layers = <0>;
             timeout-ms = <100>;

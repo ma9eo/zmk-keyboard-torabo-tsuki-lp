@@ -59,6 +59,22 @@
             quick-tap-ms = <300>;
             flavor = "tap-preferred";
         };
+
+        lang_tap_dance_f: lang_tap_dance_f {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LANG_TAP_DANCE_F";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&kp F>, <&kp LANG2>;
+        };
+
+        lang_tap_dance_j: lang_tap_dance_j {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LANG_TAP_DANCE_J";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&kp J>, <&kp LANG1>;
+        };
     };
 
     macros {
@@ -82,11 +98,11 @@
 
         layer_0 {
             bindings = <
-&none  &none                    &none         &none            &none                              &none                      &none        &none  &none      &none    &none                 &none
-&none  &kp Q                    &kp W         &kp E            &kp R                              &kp T                      &kp Y        &kp U  &kp I      &kp O    &kp P                 &none
-&none  &kp A                    &kp S         &kp D            &kp F                              &kp G        &none  &none  &kp H        &kp J  &kp K      &kp L    &mt RCMD SEMI         &none
-&none  &custom_mt LEFT_SHIFT Z  &kp X         &kp C            &kp V                              &kp B        &none  &none  &kp N        &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT FSLH  &none
-&none  &kp LCTRL                &kp LEFT_ALT  &lang_tap_dance  &custom_mt LEFT_CONTROL BACKSPACE  &lt 2 SPACE  &none  &none  &lt 3 ENTER  &none  &none      &none    &kp TAB               &none
+&none  &none                    &none         &none            &none                              &none                      &none        &none              &none      &none    &none                 &none
+&none  &kp Q                    &kp W         &kp E            &kp R                              &kp T                      &kp Y        &kp U              &kp I      &kp O    &kp P                 &none
+&none  &kp A                    &kp S         &kp D            &lang_tap_dance_f                  &kp G        &none  &none  &kp H        &lang_tap_dance_j  &kp K      &kp L    &mt RCMD SEMI         &none
+&none  &custom_mt LEFT_SHIFT Z  &kp X         &kp C            &kp V                              &kp B        &none  &none  &kp N        &kp M              &kp COMMA  &kp DOT  &mt RIGHT_SHIFT FSLH  &none
+&none  &kp LCTRL                &kp LEFT_ALT  &lang_tap_dance  &custom_mt LEFT_CONTROL BACKSPACE  &lt 2 SPACE  &none  &none  &lt 3 ENTER  &none              &none      &none    &kp TAB               &none
             >;
         };
 

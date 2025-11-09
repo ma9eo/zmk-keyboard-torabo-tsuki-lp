@@ -75,6 +75,46 @@
             tapping-term-ms = <300>;
             bindings = <&kp J>, <&kp LANG1>;
         };
+
+        lang_tap_dance_f_200: lang_tap_dance_f_200 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LANG_TAP_DANCE_F_200";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp F>, <&kp LANG2>;
+        };
+
+        lang_tap_dance_f_180: lang_tap_dance_f_180 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LANG_TAP_DANCE_F_180";
+            #binding-cells = <0>;
+            tapping-term-ms = <180>;
+            bindings = <&kp F>, <&kp LANG2>;
+        };
+
+        lang_tap_dance_f_240: lang_tap_dance_f_240 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LANG_TAP_DANCE_F_240";
+            #binding-cells = <0>;
+            tapping-term-ms = <240>;
+            bindings = <&kp F>, <&kp LANG2>;
+        };
+
+        lang_tap_dance_f_260: lang_tap_dance_f_260 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LANG_TAP_DANCE_F_260";
+            #binding-cells = <0>;
+            tapping-term-ms = <260>;
+            bindings = <&kp F>, <&kp LANG2>;
+        };
+
+        lang_tap_dance_f_280: lang_tap_dance_f_280 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LANG_TAP_DANCE_F_280";
+            #binding-cells = <0>;
+            tapping-term-ms = <280>;
+            bindings = <&kp F>, <&kp LANG2>;
+        };
     };
 
     macros {
@@ -98,11 +138,11 @@
 
         layer_0 {
             bindings = <
-&none  &none                    &none         &none            &none                              &none                      &none        &none              &none      &none    &none                 &none
-&none  &kp Q                    &kp W         &kp E            &kp R                              &kp T                      &kp Y        &kp U              &kp I      &kp O    &kp P                 &none
-&none  &kp A                    &kp S         &kp D            &lang_tap_dance_f                  &kp G        &none  &none  &kp H        &lang_tap_dance_j  &kp K      &kp L    &mt RCMD SEMI         &none
-&none  &custom_mt LEFT_SHIFT Z  &kp X         &kp C            &kp V                              &kp B        &none  &none  &kp N        &kp M              &kp COMMA  &kp DOT  &mt RIGHT_SHIFT FSLH  &none
-&none  &kp LCTRL                &kp LEFT_ALT  &lang_tap_dance  &custom_mt LEFT_CONTROL BACKSPACE  &lt 2 SPACE  &none  &none  &lt 3 ENTER  &none              &none      &none    &kp TAB               &none
+&none  &none                    &none         &none            &none                              &none                      &none        &none              &none      &none    &none                        &none
+&none  &kp Q                    &kp W         &kp E            &kp R                              &kp T                      &kp Y        &kp U              &kp I      &kp O    &kp P                        &none
+&none  &custom_mt LEFT_SHIFT A  &kp S         &kp D            &lang_tap_dance_f_180              &kp G        &none  &none  &kp H        &lang_tap_dance_j  &kp K      &kp L    &custom_mt RIGHT_SHIFT SEMI  &none
+&none  &custom_mt LEFT_SHIFT Z  &kp X         &kp C            &kp V                              &kp B        &none  &none  &kp N        &kp M              &kp COMMA  &kp DOT  &mt RIGHT_GUI FSLH           &none
+&none  &kp LCTRL                &kp LEFT_ALT  &lang_tap_dance  &custom_mt LEFT_CONTROL BACKSPACE  &lt 2 SPACE  &none  &none  &lt 3 ENTER  &none              &none      &none    &kp TAB                      &none
             >;
         };
 

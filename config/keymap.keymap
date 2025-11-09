@@ -76,36 +76,20 @@
             bindings = <&kp J>, <&kp LANG1>;
         };
 
-        lang_tap_dance_f_80: lang_tap_dance_f_80 {
+        lang_tap_dance_f_160: lang_tap_dance_f_160 {
             compatible = "zmk,behavior-tap-dance";
-            label = "LANG_TAP_DANCE_F_80";
+            label = "LANG_TAP_DANCE_F_160";
             #binding-cells = <0>;
-            tapping-term-ms = <80>;
+            tapping-term-ms = <160>;
             bindings = <&kp F>, <&kp LANG2>;
         };
 
-        lang_tap_dance_f_60: lang_tap_dance_f_60 {
+        lang_tap_dance_j_160: lang_tap_dance_j_160 {
             compatible = "zmk,behavior-tap-dance";
-            label = "LANG_TAP_DANCE_F_60";
+            label = "LANG_TAP_DANCE_J_160";
             #binding-cells = <0>;
-            tapping-term-ms = <60>;
-            bindings = <&kp F>, <&kp LANG2>;
-        };
-
-        lang_tap_dance_f_40: lang_tap_dance_f_40 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "LANG_TAP_DANCE_F_40";
-            #binding-cells = <0>;
-            tapping-term-ms = <40>;
-            bindings = <&kp F>, <&kp LANG2>;
-        };
-
-        lang_tap_dance_f_20: lang_tap_dance_f_20 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "LANG_TAP_DANCE_F_20";
-            #binding-cells = <0>;
-            tapping-term-ms = <20>;
-            bindings = <&kp F>, <&kp LANG2>;
+            tapping-term-ms = <160>;
+            bindings = <&kp J>, <&kp LANG1>;
         };
     };
 
@@ -132,7 +116,7 @@
             bindings = <
 &none  &none                    &none         &none            &none                              &none                      &none        &none              &none      &none    &none                        &none
 &none  &kp Q                    &kp W         &kp E            &kp R                              &kp T                      &kp Y        &kp U              &kp I      &kp O    &kp P                        &none
-&none  &custom_mt LEFT_SHIFT A  &kp S         &kp D            &lang_tap_dance_f_60               &kp G        &none  &none  &kp H        &lang_tap_dance_j  &kp K      &kp L    &custom_mt RIGHT_SHIFT SEMI  &none
+&none  &custom_mt LEFT_SHIFT A  &kp S         &kp D            &lang_tap_dance_f                  &kp G        &none  &none  &kp H        &lang_tap_dance_j  &kp K      &kp L    &custom_mt RIGHT_SHIFT SEMI  &none
 &none  &custom_mt LEFT_SHIFT Z  &kp X         &kp C            &kp V                              &kp B        &none  &none  &kp N        &kp M              &kp COMMA  &kp DOT  &mt RIGHT_GUI FSLH           &none
 &none  &kp LCTRL                &kp LEFT_ALT  &lang_tap_dance  &custom_mt LEFT_CONTROL BACKSPACE  &lt 2 SPACE  &none  &none  &lt 3 ENTER  &none              &none      &none    &kp TAB                      &none
             >;

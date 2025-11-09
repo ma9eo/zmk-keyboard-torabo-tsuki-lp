@@ -132,7 +132,7 @@
             bindings = <
 &none  &none                    &none         &none            &none                              &none                      &none        &none              &none      &none    &none                        &none
 &none  &kp Q                    &kp W         &kp E            &kp R                              &kp T                      &kp Y        &kp U              &kp I      &kp O    &kp P                        &none
-&none  &custom_mt LEFT_SHIFT A  &kp S         &kp D            &lang_tap_dance_f_160              &kp G        &none  &none  &kp H        &lang_tap_dance_j  &kp K      &kp L    &custom_mt RIGHT_SHIFT SEMI  &none
+&none  &custom_mt LEFT_SHIFT A  &kp S         &kp D            &lang_tap_dance_f_100              &kp G        &none  &none  &kp H        &lang_tap_dance_j  &kp K      &kp L    &custom_mt RIGHT_SHIFT SEMI  &none
 &none  &custom_mt LEFT_SHIFT Z  &kp X         &kp C            &kp V                              &kp B        &none  &none  &kp N        &kp M              &kp COMMA  &kp DOT  &mt RIGHT_GUI FSLH           &none
 &none  &kp LCTRL                &kp LEFT_ALT  &lang_tap_dance  &custom_mt LEFT_CONTROL BACKSPACE  &lt 2 SPACE  &none  &none  &lt 3 ENTER  &none              &none      &none    &kp TAB                      &none
             >;

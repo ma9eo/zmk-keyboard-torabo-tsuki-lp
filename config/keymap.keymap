@@ -64,7 +64,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "LANG_TAP_DANCE_F";
             #binding-cells = <0>;
-            tapping-term-ms = <300>;
+            tapping-term-ms = <180>;
             bindings = <&kp F>, <&kp LANG2>;
         };
 
@@ -76,43 +76,35 @@
             bindings = <&kp J>, <&kp LANG1>;
         };
 
-        lang_tap_dance_f_200: lang_tap_dance_f_200 {
+        lang_tap_dance_f_160: lang_tap_dance_f_160 {
             compatible = "zmk,behavior-tap-dance";
-            label = "LANG_TAP_DANCE_F_200";
+            label = "LANG_TAP_DANCE_F_160";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <160>;
             bindings = <&kp F>, <&kp LANG2>;
         };
 
-        lang_tap_dance_f_180: lang_tap_dance_f_180 {
+        lang_tap_dance_f_140: lang_tap_dance_f_140 {
             compatible = "zmk,behavior-tap-dance";
-            label = "LANG_TAP_DANCE_F_180";
+            label = "LANG_TAP_DANCE_F_140";
             #binding-cells = <0>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <140>;
             bindings = <&kp F>, <&kp LANG2>;
         };
 
-        lang_tap_dance_f_240: lang_tap_dance_f_240 {
+        lang_tap_dance_f_120: lang_tap_dance_f_120 {
             compatible = "zmk,behavior-tap-dance";
-            label = "LANG_TAP_DANCE_F_240";
+            label = "LANG_TAP_DANCE_F_120";
             #binding-cells = <0>;
-            tapping-term-ms = <240>;
+            tapping-term-ms = <120>;
             bindings = <&kp F>, <&kp LANG2>;
         };
 
-        lang_tap_dance_f_260: lang_tap_dance_f_260 {
+        lang_tap_dance_f_100: lang_tap_dance_f_100 {
             compatible = "zmk,behavior-tap-dance";
-            label = "LANG_TAP_DANCE_F_260";
+            label = "LANG_TAP_DANCE_F_100";
             #binding-cells = <0>;
-            tapping-term-ms = <260>;
-            bindings = <&kp F>, <&kp LANG2>;
-        };
-
-        lang_tap_dance_f_280: lang_tap_dance_f_280 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "LANG_TAP_DANCE_F_280";
-            #binding-cells = <0>;
-            tapping-term-ms = <280>;
+            tapping-term-ms = <100>;
             bindings = <&kp F>, <&kp LANG2>;
         };
     };
@@ -140,7 +132,7 @@
             bindings = <
 &none  &none                    &none         &none            &none                              &none                      &none        &none              &none      &none    &none                        &none
 &none  &kp Q                    &kp W         &kp E            &kp R                              &kp T                      &kp Y        &kp U              &kp I      &kp O    &kp P                        &none
-&none  &custom_mt LEFT_SHIFT A  &kp S         &kp D            &lang_tap_dance_f_180              &kp G        &none  &none  &kp H        &lang_tap_dance_j  &kp K      &kp L    &custom_mt RIGHT_SHIFT SEMI  &none
+&none  &custom_mt LEFT_SHIFT A  &kp S         &kp D            &lang_tap_dance_f_160              &kp G        &none  &none  &kp H        &lang_tap_dance_j  &kp K      &kp L    &custom_mt RIGHT_SHIFT SEMI  &none
 &none  &custom_mt LEFT_SHIFT Z  &kp X         &kp C            &kp V                              &kp B        &none  &none  &kp N        &kp M              &kp COMMA  &kp DOT  &mt RIGHT_GUI FSLH           &none
 &none  &kp LCTRL                &kp LEFT_ALT  &lang_tap_dance  &custom_mt LEFT_CONTROL BACKSPACE  &lt 2 SPACE  &none  &none  &lt 3 ENTER  &none              &none      &none    &kp TAB                      &none
             >;

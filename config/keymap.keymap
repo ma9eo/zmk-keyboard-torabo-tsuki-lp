@@ -37,6 +37,11 @@
             layers = <0>;
             timeout-ms = <100>;
         };
+
+        shift2 {
+            bindings = <&double_tap LEFT_SHIFT>;
+            key-positions = <21 20>;
+        };
     };
 
     behaviors {
@@ -116,6 +121,19 @@
                 <&kp LEFT_WIN>;
 
             label = "WIN_TASK_VIEW";
+        };
+
+        double_tap: double_tap {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_tap>,
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER>,
+                <&macro_wait_time 100>,
+                <&macro_tap>,
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+
+            label = "double_tap";
         };
     };
 

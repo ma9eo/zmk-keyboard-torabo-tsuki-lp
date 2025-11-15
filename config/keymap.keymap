@@ -142,11 +142,11 @@
 
         layer_0 {
             bindings = <
-&none  &none             &none                  &none  &none                              &none                             &none               &none                  &none      &none    &none                        &none
-&none  &kp Q             &kp W                  &kp E  &kp R                              &kp T                             &kp Y               &kp U                  &kp I      &kp O    &kp P                        &none
-&none  &kp A             &kp S                  &kp D  &lang_tap_dance_f_180              &kp G               &none  &none  &kp H               &lang_tap_dance_j_260  &kp K      &kp L    &mt RIGHT_GUI SEMI           &none
-&none  &mt LEFT_SHIFT Z  &custom_mt LEFT_ALT X  &kp C  &kp V                              &kp B               &none  &none  &kp N               &kp M                  &kp COMMA  &kp DOT  &custom_mt RIGHT_SHIFT FSLH  &none
-&none  &none             &none                  &none  &custom_mt LEFT_CONTROL BACKSPACE  &custom_lt 2 SPACE  &none  &none  &custom_lt 3 ENTER  &none                  &none      &none    &kp TAB                      &none
+&none  &none                    &none                  &none  &none                              &none                             &none               &none                  &none      &none    &none                        &none
+&none  &kp Q                    &kp W                  &kp E  &kp R                              &kp T                             &kp Y               &kp U                  &kp I      &kp O    &kp P                        &none
+&none  &kp A                    &kp S                  &kp D  &lang_tap_dance_f_180              &kp G               &none  &none  &kp H               &lang_tap_dance_j_260  &kp K      &kp L    &mt RIGHT_GUI SEMI           &none
+&none  &custom_mt LEFT_SHIFT Z  &custom_mt LEFT_ALT X  &kp C  &kp V                              &kp B               &none  &none  &kp N               &kp M                  &kp COMMA  &kp DOT  &custom_mt RIGHT_SHIFT FSLH  &none
+&none  &none                    &none                  &none  &custom_mt LEFT_CONTROL BACKSPACE  &custom_lt 2 SPACE  &none  &none  &custom_lt 3 ENTER  &none                  &none      &none    &kp TAB                      &none
             >;
         };
 

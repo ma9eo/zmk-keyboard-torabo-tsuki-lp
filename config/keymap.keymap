@@ -42,16 +42,6 @@
             bindings = <&double_tap LEFT_SHIFT>;
             key-positions = <39 40>;
         };
-
-        reset {
-            bindings = <&sys_reset>;
-            key-positions = <58 59>;
-        };
-
-        test {
-            bindings = <&none>;
-            key-positions = <64 65>;
-        };
     };
 
     behaviors {

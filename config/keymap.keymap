@@ -47,6 +47,11 @@
             bindings = <&sys_reset>;
             key-positions = <58 59>;
         };
+
+        test {
+            bindings = <&none>;
+            key-positions = <64 65>;
+        };
     };
 
     behaviors {

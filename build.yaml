@@ -26,5 +26,5 @@ include:
   #   snippet: "studio-rpc-usb-uart split-trackball-listner"
   #   cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
   #   artifact-name: torabo_tsuki_lp_double_ball_right_central
-  # - board: bmp_boost
-  #   shield: settings_reset
+  - board: bmp_boost
+    shield: settings_reset

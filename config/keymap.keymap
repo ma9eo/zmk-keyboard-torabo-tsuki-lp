@@ -1,7 +1,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 
 / {
@@ -11,13 +10,13 @@
         bt_clear {
             bindings = <&bt BT_CLR>;
             key-positions = <43 42>;
-            layers = <3>;
+            layers = <3 4>;
         };
 
         left_click {
             bindings = <&mkp LCLK>;
             key-positions = <33 34>;
-            layers = <0>;
+            layers = <0 1>;
             slow-release;
             timeout-ms = <100>;
         };
@@ -25,7 +24,7 @@
         right_click {
             bindings = <&mkp RCLK>;
             key-positions = <34 35>;
-            layers = <0>;
+            layers = <0 1>;
             slow-release;
             timeout-ms = <100>;
         };
@@ -34,7 +33,7 @@
             bindings = <&mo 2>;
             key-positions = <47 48>;
             slow-release;
-            layers = <0>;
+            layers = <0 1>;
             timeout-ms = <100>;
         };
 
@@ -140,23 +139,23 @@
     keymap {
         compatible = "zmk,keymap";
 
-        layer_0 {
+        layer_0_mac {
             bindings = <
-&none  &none                    &none                  &none  &none                              &none                             &none               &none                  &none      &none    &none                        &none
-&none  &kp Q                    &kp W                  &kp E  &kp R                              &kp T                             &kp Y               &kp U                  &kp I      &kp O    &kp P                        &none
-&none  &kp A                    &kp S                  &kp D  &lang_tap_dance_f_180              &kp G               &none  &none  &kp H               &lang_tap_dance_j_260  &kp K      &kp L    &mt RIGHT_GUI SEMI           &none
-&none  &custom_mt LEFT_SHIFT Z  &custom_mt LEFT_ALT X  &kp C  &kp V                              &kp B               &none  &none  &kp N               &kp M                  &kp COMMA  &kp DOT  &custom_mt RIGHT_SHIFT FSLH  &none
-&none  &none                    &none                  &none  &custom_mt LEFT_CONTROL BACKSPACE  &custom_lt 2 SPACE  &none  &none  &custom_lt 3 ENTER  &none                  &none      &none    &kp TAB                      &none
+&none  &none                    &none                  &none  &none                          &none                             &none               &none                  &none      &none    &none                        &none
+&none  &kp Q                    &kp W                  &kp E  &kp R                          &kp T                             &kp Y               &kp U                  &kp I      &kp O    &kp P                        &none
+&none  &kp A                    &kp S                  &kp D  &lang_tap_dance_f_180          &kp G               &none  &none  &kp H               &lang_tap_dance_j_260  &kp K      &kp L    &mt RIGHT_CONTROL SEMI       &none
+&none  &custom_mt LEFT_SHIFT Z  &custom_mt LEFT_ALT X  &kp C  &kp V                          &kp B               &none  &none  &kp N               &kp M                  &kp COMMA  &kp DOT  &custom_mt RIGHT_SHIFT FSLH  &none
+&none  &none                    &none                  &none  &custom_mt LEFT_GUI BACKSPACE  &custom_lt 2 SPACE  &none  &none  &custom_lt 3 ENTER  &none                  &none      &none    &none                        &none
             >;
         };
 
-        layer_1 {
+        layer_0_win {
             bindings = <
-&none  &none   &none   &none   &none   &none                   &none   &none   &none   &none   &none   &none
-&none  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &none
-&none  &trans  &trans  &trans  &trans  &trans  &none   &none   &trans  &trans  &trans  &trans  &trans  &none
-&none  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none
-&none  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none   &none   &none   &trans  &none
+&none  &none   &none   &none   &none                              &none                 &none               &none   &none   &none   &none               &none
+&none  &trans  &trans  &trans  &trans                             &trans                &trans              &trans  &trans  &trans  &trans              &none
+&none  &trans  &trans  &trans  &trans                             &trans  &none  &none  &trans              &trans  &trans  &trans  &mt RIGHT_GUI SEMI  &none
+&none  &trans  &trans  &trans  &trans                             &trans  &none  &none  &trans              &trans  &trans  &trans  &trans              &none
+&none  &none   &none   &none   &custom_mt LEFT_CONTROL BACKSPACE  &trans  &none  &none  &custom_lt 4 ENTER  &none   &none   &none   &none               &none
             >;
         };
 
@@ -170,13 +169,23 @@
             >;
         };
 
-        layer_3 {
+        layer_3_mac {
             bindings = <
-&none  &none    &none    &none         &none         &none                       &none             &none            &none         &none        &none            &none
-&none  &kp F1   &kp F2   &kp F3        &kp F4        &kp F5                      &kp F19           &kp LC(LS(TAB))  &kp UP_ARROW  &kp LC(TAB)  &win_task_view   &none
-&none  &kp F6   &kp F7   &kp F8        &kp F9        &kp F10     &none   &none   &kp F18           &kp LEFT         &kp DOWN      &kp RIGHT    &kp PRINTSCREEN  &none
-&none  &kp F11  &kp F12  &bt BT_SEL 0  &bt BT_SEL 1  &trans      &trans  &trans  &kp SINGLE_QUOTE  &kp DQT          &kp GRAVE     &kp TILDE    &kp PIPE         &none
-&none  &trans   &trans   &trans        &kp DELETE    &kp ESC     &trans  &trans  &trans            &none            &none         &none        &trans           &none
+&none  &none    &none    &none         &none         &none                             &none              &none            &none         &none        &none                 &none
+&none  &kp F1   &kp F2   &kp F3        &kp F4        &kp F5                            &kp C_VOLUME_UP    &kp LC(LS(TAB))  &kp UP_ARROW  &kp LC(TAB)  &kp LC(LG(L))         &none
+&none  &kp F6   &kp F7   &kp F8        &kp F9        &kp F10           &none   &none   &kp C_VOLUME_DOWN  &kp LEFT         &kp DOWN      &kp RIGHT    &kp LS(LG(NUMBER_4))  &none
+&none  &kp F11  &kp F12  &bt BT_SEL 0  &bt BT_SEL 1  &kp LEFT_CONTROL  &trans  &trans  &kp SINGLE_QUOTE   &kp DQT          &kp GRAVE     &kp TILDE    &kp PIPE              &none
+&none  &trans   &trans   &trans        &kp DELETE    &kp ESC           &trans  &trans  &trans             &none            &none         &none        &trans                &none
+            >;
+        };
+
+        layer_3_win {
+            bindings = <
+&none  &none    &none    &none         &none         &none                    &none             &none            &none         &none        &none            &none
+&none  &kp F1   &kp F2   &kp F3        &kp F4        &kp F5                   &kp F19           &kp LC(LS(TAB))  &kp UP_ARROW  &kp LC(TAB)  &win_task_view   &none
+&none  &kp F6   &kp F7   &kp F8        &kp F9        &kp F10  &none   &none   &kp F18           &kp LEFT         &kp DOWN      &kp RIGHT    &kp PRINTSCREEN  &none
+&none  &kp F11  &kp F12  &bt BT_SEL 0  &bt BT_SEL 1  &trans   &trans  &trans  &kp SINGLE_QUOTE  &kp DQT          &kp GRAVE     &kp TILDE    &kp PIPE         &none
+&none  &trans   &trans   &trans        &kp DELETE    &kp ESC  &trans  &trans  &trans            &none            &none         &none        &trans           &none
             >;
         };
     };

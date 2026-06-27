@@ -11,28 +11,28 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
 #if IS_ENABLED(CONFIG_ZMK_BLE) && IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
 
-#define BLE_PROFILE_1 1
-#define DEFAULT_LAYER_1 1
+#define BLE_PROFILE_MAC 0
+#define WINDOWS_LAYER 1
 
 static int apply_default_layer_for_profile(uint8_t profile_index) {
-    int ret = zmk_keymap_layer_deactivate(DEFAULT_LAYER_1);
+    int ret = zmk_keymap_layer_deactivate(WINDOWS_LAYER);
 
     if (ret < 0) {
-        LOG_WRN("Failed to deactivate Mac layer %d: %d", DEFAULT_LAYER_1, ret);
+        LOG_WRN("Failed to deactivate Windows layer %d: %d", WINDOWS_LAYER, ret);
     }
 
-    if (profile_index != BLE_PROFILE_1) {
-        LOG_INF("BLE profile %d selected, using Windows layer", profile_index);
+    if (profile_index == BLE_PROFILE_MAC) {
+        LOG_INF("BLE profile %d selected, using Mac layer", profile_index);
         return 0;
     }
 
-    ret = zmk_keymap_layer_activate(DEFAULT_LAYER_1);
+    ret = zmk_keymap_layer_activate(WINDOWS_LAYER);
     if (ret < 0) {
-        LOG_WRN("Failed to activate Mac layer %d: %d", DEFAULT_LAYER_1, ret);
+        LOG_WRN("Failed to activate Windows layer %d: %d", WINDOWS_LAYER, ret);
         return ret;
     }
 
-    LOG_INF("BLE profile %d selected, using Mac layer", profile_index);
+    LOG_INF("BLE profile %d selected, using Windows layer", profile_index);
     return 0;
 }
 

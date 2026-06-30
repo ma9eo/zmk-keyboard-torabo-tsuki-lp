@@ -10,11 +10,21 @@
 
     scroller {
         layers = <2>;
+        // base のスクロール: Mac(profile 0) 向けに Y を反転
+        process-next;
         input-processors = <
             &zip_xy_to_scroll_mapper
             &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)
             &zip_scroll_scaler 1 20
         >;
+    };
+
+    
+    //  Windows(profile != 0) ではスクロールの反転を打ち消す。
+    scroller_win {
+        layers = <1>;
+        process-next;
+        input-processors = <&zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)>;
     };
 };
 

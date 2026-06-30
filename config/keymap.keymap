@@ -144,7 +144,7 @@
         layer_0 {
             bindings = <
 &none  &none   &none   &none   &none   &none   &none   &none   &none   &none   &none   &none
-&none  &kp Q   &trans  &kp E   &kp R   &kp T   &kp Y   &kp U   &kp I   &kp O   &kp P   &none
+&none  &mouse_gesture_kp 0 Q  &kp W  &kp E   &kp R   &kp T   &kp Y   &kp U   &kp I   &kp O   &kp P   &none
 &none  &kp A                    &kp S                  &kp D  &lang_tap_dance_f_180  &kp G             &none  &none  &kp H               &lang_tap_dance_j_260  &kp K      &kp L    &trans                       &none
 &none  &custom_mt LEFT_SHIFT Z  &custom_mt LEFT_ALT X  &kp C  &kp V               &kp B               &none  &none  &kp N               &kp M                  &kp COMMA  &kp DOT  &custom_mt RIGHT_SHIFT FSLH  &none
 &none  &none                    &none                  &none  &trans              &custom_lt 3 SPACE  &none  &none  &trans              &none                  &none      &none    &none                        &none
@@ -155,7 +155,7 @@
         layer_0_mac {
             bindings = <
 &none  &none   &none   &none   &none   &none   &none   &none   &none   &none   &none   &none
-&none  &trans  &mouse_gesture_kp 0 W  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none
+&none  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none
 &none  &custom_mt LEFT_CONTROL A  &trans  &trans  &trans                  &trans  &none  &none  &trans  &trans              &trans  &trans  &custom_mt RIGHT_CONTROL SEMI  &none
 &none  &trans              &trans  &trans  &trans                  &trans  &none  &none  &trans  &trans              &trans  &trans  &trans                 &none
 &none  &none               &none   &none   &custom_mt LEFT_GUI BACKSPACE  &trans  &none  &none  &custom_lt 4 ENTER  &none   &none   &none   &none                  &none
@@ -166,7 +166,7 @@
         layer_0_win {
             bindings = <
 &none  &none   &none                  &none   &none   &none   &none   &none   &none   &none   &none   &none
-&none  &trans  &mouse_gesture_kp 0 W  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none
+&none  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none
 &none  &trans  &trans                 &trans  &trans                             &trans  &none  &none  &trans  &trans              &trans  &trans  &mt RIGHT_GUI SEMI  &none
 &none  &trans  &trans                 &trans  &trans                             &trans  &none  &none  &trans  &trans              &trans  &trans  &trans              &none
 &none  &none   &none                  &none   &custom_mt LEFT_CONTROL BACKSPACE  &trans  &none  &none  &custom_lt 5 ENTER  &none   &none   &none   &none               &none

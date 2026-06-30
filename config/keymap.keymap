@@ -11,13 +11,13 @@
         bt_clear {
             bindings = <&bt BT_CLR>;
             key-positions = <23 24>;
-            layers = <3 4>;
+            layers = <4 5>;
         };
 
         left_click {
             bindings = <&mkp LCLK>;
             key-positions = <16 17>;
-            layers = <0 1>;
+            layers = <1 2>;
             slow-release;
             timeout-ms = <100>;
         };
@@ -25,16 +25,16 @@
         right_click {
             bindings = <&mkp RCLK>;
             key-positions = <17 18>;
-            layers = <0 1>;
+            layers = <1 2>;
             slow-release;
             timeout-ms = <100>;
         };
 
         scroll_layer {
-            bindings = <&mo 2>;
+            bindings = <&mo 3>;
             key-positions = <28 29>;
             slow-release;
-            layers = <0 1>;
+            layers = <1 2>;
             timeout-ms = <100>;
         };
 
@@ -140,23 +140,36 @@
     keymap {
         compatible = "zmk,keymap";
 
-        layer_0_mac {
+        // 共通ベース（常時有効）。OS 固有キーは layer_0_mac / layer_0_win 側で上書きする。
+        layer_0 {
             bindings = <
-&none  &none                    &none                  &none  &none                          &none                             &none               &none                  &none      &none    &none                        &none
-&none  &kp Q                    &kp W                  &kp E  &kp R                          &kp T                             &kp Y               &kp U                  &kp I      &kp O    &kp P                        &none
-&none  &kp A                    &kp S                  &kp D  &lang_tap_dance_f_180          &kp G               &none  &none  &kp H               &lang_tap_dance_j_260  &kp K      &kp L    &mt RIGHT_CONTROL SEMI       &none
-&none  &custom_mt LEFT_SHIFT Z  &custom_mt LEFT_ALT X  &kp C  &kp V                          &kp B               &none  &none  &kp N               &kp M                  &kp COMMA  &kp DOT  &custom_mt RIGHT_SHIFT FSLH  &none
-&none  &none                    &none                  &none  &custom_mt LEFT_GUI BACKSPACE  &custom_lt 2 SPACE  &none  &none  &custom_lt 3 ENTER  &none                  &none      &none    &none                        &none
+&none  &none   &none   &none   &none   &none   &none   &none   &none   &none   &none   &none
+&none  &kp Q   &trans  &kp E   &kp R   &kp T   &kp Y   &kp U   &kp I   &kp O   &kp P   &none
+&none  &kp A                    &kp S                  &kp D  &lang_tap_dance_f_180  &kp G             &none  &none  &kp H               &lang_tap_dance_j_260  &kp K      &kp L    &trans                       &none
+&none  &custom_mt LEFT_SHIFT Z  &custom_mt LEFT_ALT X  &kp C  &kp V               &kp B               &none  &none  &kp N               &kp M                  &kp COMMA  &kp DOT  &custom_mt RIGHT_SHIFT FSLH  &none
+&none  &none                    &none                  &none  &trans              &custom_lt 3 SPACE  &none  &none  &trans              &none                  &none      &none    &none                        &none
             >;
         };
 
+        // Mac 固有の上書き（profile 0 でこのレイヤーを常時 ON にする）
+        layer_0_mac {
+            bindings = <
+&none  &none   &none   &none   &none   &none   &none   &none   &none   &none   &none   &none
+&none  &trans  &kp W   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none
+&none  &custom_mt LEFT_CONTROL A  &trans  &trans  &trans                  &trans  &none  &none  &trans  &trans              &trans  &trans  &custom_mt RIGHT_CONTROL SEMI  &none
+&none  &trans              &trans  &trans  &trans                  &trans  &none  &none  &trans  &trans              &trans  &trans  &trans                 &none
+&none  &none               &none   &none   &custom_mt LEFT_GUI BACKSPACE  &trans  &none  &none  &custom_lt 4 ENTER  &none   &none   &none   &none                  &none
+            >;
+        };
+
+        // Windows 固有の上書き（profile != 0 でこのレイヤーを常時 ON にする）
         layer_0_win {
             bindings = <
-&none  &none   &none   &none   &none                              &none                 &none               &none   &none   &none   &none               &none
-&none  &trans  &mouse_gesture_kp 0 W  &trans  &trans                  &trans                &trans              &trans  &trans  &trans  &trans              &none
-&none  &trans  &trans  &trans  &trans                             &trans  &none  &none  &trans              &trans  &trans  &trans  &mt RIGHT_GUI SEMI  &none
-&none  &trans  &trans  &trans  &trans                             &trans  &none  &none  &trans              &trans  &trans  &trans  &trans              &none
-&none  &none   &none   &none   &custom_mt LEFT_CONTROL BACKSPACE  &trans  &none  &none  &custom_lt 4 ENTER  &none   &none   &none   &none               &none
+&none  &none   &none                  &none   &none   &none   &none   &none   &none   &none   &none   &none
+&none  &trans  &mouse_gesture_kp 0 W  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none
+&none  &trans  &trans                 &trans  &trans                             &trans  &none  &none  &trans  &trans              &trans  &trans  &mt RIGHT_GUI SEMI  &none
+&none  &trans  &trans                 &trans  &trans                             &trans  &none  &none  &trans  &trans              &trans  &trans  &trans              &none
+&none  &none   &none                  &none   &custom_mt LEFT_CONTROL BACKSPACE  &trans  &none  &none  &custom_lt 5 ENTER  &none   &none   &none   &none               &none
             >;
         };
 

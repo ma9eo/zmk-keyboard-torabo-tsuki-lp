@@ -41,7 +41,7 @@
     >;
 
     scroller {
-        layers = <2>;
+        layers = <3>;
         // base のスクロール: Mac(profile 0) 向けに Y を反転
         process-next;
         input-processors = <
@@ -54,7 +54,7 @@
     
     //  Windows(profile != 0) ではスクロールの反転を打ち消す。
     scroller_win {
-        layers = <1>;
+        layers = <2>;
         process-next;
         input-processors = <&zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)>;
     };

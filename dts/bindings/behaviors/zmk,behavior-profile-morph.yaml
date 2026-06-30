@@ -1,0 +1,19 @@
+# Copyright (c) 2024 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+description: |
+  Profile Morph Behavior.
+  bindings[0] を Mac(mac-profile, 既定 0)、bindings[1] を Windows(それ以外の
+  プロファイル) で出力する。
+
+compatible: "zmk,behavior-profile-morph"
+
+include: zero_param.yaml
+
+properties:
+  bindings:
+    type: phandle-array
+    required: true
+  mac-profile:
+    type: int
+    required: false

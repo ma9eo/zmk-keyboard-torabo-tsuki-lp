@@ -4,97 +4,80 @@
 #include <dt-bindings/zmk/keys.h>
 #include <mouse-gesture.dtsi>
 
-// ジェスチャは pointing_listener の「レイヤー別 override 子ノード」で処理する。
-// override はベース input-processors より先に走る＝ベースの zip_xy_transform
-// (X/Y 反転) より前の生座標を見るため、pattern の上下左右は画面上の見た目と反転する。
-// （コメントは物理スワイプ方向で記載。逆に感じたら pattern を入れ替えれば良い）
-// W ホールドは両プロセッサをグローバルに有効化するが、レイヤーに合致した側だけが
-// 入力チェーンに乗るため、その OS のジェスチャだけが発火する。
+// ジェスチャは base 入力チェーン(transform → zip_mouse_gesture → scaler)に置く。
+// suppress-movement は base チェーンでのみ STOP がカーソル抑制に効く（override 子ノード
+// では listener が STOP を握り潰すため効かない）。OS 別の出力は profile-morph behavior
+// が担当し、Mac(profile 0)と Windows で別キーを送る。
+// pattern は transform 後の座標＝画面の見た目どおりの向き。
 
 / {
-    // Windows 用ジェスチャ
-    zip_mouse_gesture_win: zip_mouse_gesture_win {
-        compatible = "zmk,input-processor-mouse-gesture";
-        #input-processor-cells = <0>;
-        suppress-movement;   // ジェスチャ認識中はカーソルを動かさない
-        stroke-size = <40>;  // 1ストロークに必要な移動量。小さいほど少ない動きで反応
-
-        desktop_next {
-            // 右スワイプ → 次の仮想デスクトップ(Win+Ctrl+→)
-            pattern = <GESTURE_LEFT>;
-            bindings = <&kp LG(LC(RIGHT))>;
+    behaviors {
+        // 各方向の OS 別出力（bindings[0]=Mac / [1]=Windows）
+        gesture_next: gesture_next {
+            compatible = "zmk,behavior-profile-morph";
+            #binding-cells = <0>;
+            // 右スワイプ: 次のスペース(Ctrl+→) / 次の仮想デスクトップ(Win+Ctrl+→)
+            bindings = <&kp LC(RIGHT)>, <&kp LG(LC(RIGHT))>;
         };
 
-        desktop_prev {
-            // 左スワイプ → 前の仮想デスクトップ(Win+Ctrl+←)
-            pattern = <GESTURE_RIGHT>;
-            bindings = <&kp LG(LC(LEFT))>;
+        gesture_prev: gesture_prev {
+            compatible = "zmk,behavior-profile-morph";
+            #binding-cells = <0>;
+            // 左スワイプ: 前のスペース(Ctrl+←) / 前の仮想デスクトップ(Win+Ctrl+←)
+            bindings = <&kp LC(LEFT)>, <&kp LG(LC(LEFT))>;
         };
 
-        task_view {
-            // 上スワイプ → タスクビュー(Win+Tab)
-            pattern = <GESTURE_DOWN>;
-            bindings = <&kp LG(TAB)>;
+        gesture_up: gesture_up {
+            compatible = "zmk,behavior-profile-morph";
+            #binding-cells = <0>;
+            // 上スワイプ: Mission Control(Ctrl+↑) / タスクビュー(Win+Tab)
+            bindings = <&kp LC(UP)>, <&kp LG(TAB)>;
         };
 
-        show_desktop {
-            // 下スワイプ → デスクトップ表示(Win+D)
-            pattern = <GESTURE_UP>;
-            bindings = <&kp LG(D)>;
+        gesture_down: gesture_down {
+            compatible = "zmk,behavior-profile-morph";
+            #binding-cells = <0>;
+            // 下スワイプ: デスクトップを表示(F11) / デスクトップ表示(Win+D)
+            bindings = <&kp F11>, <&kp LG(D)>;
         };
     };
+};
 
-    // Mac 用ジェスチャ（向きの扱いは Windows と同じく物理スワイプ基準で反転表記）
-    zip_mouse_gesture_mac: zip_mouse_gesture_mac {
-        compatible = "zmk,input-processor-mouse-gesture";
-        #input-processor-cells = <0>;
-        suppress-movement;
-        stroke-size = <40>;
+&zip_mouse_gesture {
+    suppress-movement;   // ジェスチャ認識中はカーソルを動かさない
+    stroke-size = <40>;  // 1ストロークに必要な移動量。小さいほど少ない動きで反応
 
-        space_next {
-            // 右スワイプ → 次のスペース(Ctrl+→)
-            pattern = <GESTURE_LEFT>;
-            bindings = <&kp LC(RIGHT)>;
-        };
+    swipe_right {
+        // 右スワイプ
+        pattern = <GESTURE_RIGHT>;
+        bindings = <&gesture_next>;
+    };
 
-        space_prev {
-            // 左スワイプ → 前のスペース(Ctrl+←)
-            pattern = <GESTURE_RIGHT>;
-            bindings = <&kp LC(LEFT)>;
-        };
+    swipe_left {
+        // 左スワイプ
+        pattern = <GESTURE_LEFT>;
+        bindings = <&gesture_prev>;
+    };
 
-        mission_control {
-            // 上スワイプ → Mission Control(Ctrl+↑)
-            pattern = <GESTURE_DOWN>;
-            bindings = <&kp LC(UP)>;
-        };
+    swipe_up {
+        // 上スワイプ
+        pattern = <GESTURE_UP>;
+        bindings = <&gesture_up>;
+    };
 
-        show_desktop {
-            // 下スワイプ → デスクトップを表示(F11)
-            pattern = <GESTURE_UP>;
-            bindings = <&kp F11>;
-        };
+    swipe_down {
+        // 下スワイプ
+        pattern = <GESTURE_DOWN>;
+        bindings = <&gesture_down>;
     };
 };
 
 &pointing_listener {
     input-processors = <
         &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
+        &zip_mouse_gesture
         &zip_xy_scaler 3 10
     >;
-
-    // ジェスチャは scroller より前に置く（スクロール変換前の生 X/Y を見るため）
-    gesture_mac {
-        layers = <1>;        // Mac(profile 0)
-        process-next;
-        input-processors = <&zip_mouse_gesture_mac>;
-    };
-
-    gesture_win {
-        layers = <2>;        // Windows(profile != 0)
-        process-next;
-        input-processors = <&zip_mouse_gesture_win>;
-    };
 
     scroller {
         layers = <3>;

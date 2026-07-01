@@ -81,20 +81,26 @@
 
     scroller {
         layers = <3>;
-        // base のスクロール: Mac(profile 0) 向けに Y を反転
+        // スクロールレイヤー共通の変換・スケーリング（軸反転は OS 別レイヤー側で行う）
         process-next;
         input-processors = <
             &zip_xy_to_scroll_mapper
-            &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)
             &zip_scroll_scaler 1 20
         >;
     };
 
-    //  Windows(profile != 0) ではスクロールの反転を打ち消す。
-    scroller_win {
-        layers = <2>;
+    scroller_mac {
+        // Mac(layer 1): ナチュラルスクロール向けに Y を反転
+        layers = <1>;
         process-next;
         input-processors = <&zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)>;
+    };
+
+    scroller_win {
+        // Windows(layer 2): X を反転
+        layers = <2>;
+        process-next;
+        input-processors = <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>;
     };
 };
 
